@@ -4,10 +4,9 @@ package f21as.testing;
 // To generate a unit test for this class (in Eclipse):
 // 1. Right click the class in the Package Explorer
 // 2. Choose New > JUnit Test Case
-// 3. Change Source folder to TestingExample/src/test/java
+// 3. Change Source folder to TestingLC/src/test/java
 // 4. Click Finish
 //
-// NOTE: this is how I generated BTest.java
 public class B {
 	private int number = 0;
 
