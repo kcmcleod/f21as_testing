@@ -1,0 +1,1 @@
+Ensures test folder in Git despite being empty
