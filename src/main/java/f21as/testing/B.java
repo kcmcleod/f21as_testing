@@ -26,8 +26,13 @@ public class B {
 	// 4. Repeat until all tests pass 
 	public String processNumber() {
 		// return "small number" if number < 10
+		if(number < 10) return "small number";
+
 		// return "medium number" if number < 100
-		// return "large number" if 100 < number
-		return "";
+		if(number < 100) return "medium number";
+
+		// OLD: return "large number" if 100 < number
+		// NEW: return "large number" if 100 <= number
+		return "large number";
 	}
 }
