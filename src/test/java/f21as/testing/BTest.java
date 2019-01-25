@@ -19,4 +19,20 @@ public class BTest {
         // the message (1st parameter is optional)
         assertEquals("I expect this to return 0 because it is set to 0 when created", 0, b.getNumber());
     }
+
+    @Test
+    public void setNumber_pass() {
+        // testing min boundary
+        b.setNumber(0);
+        assertEquals(0, b.getNumber());
+
+        b.setNumber(6+6);
+        assertEquals(12, b.getNumber());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setNumber_lessThan0_fail() {
+        // testing min boundary - 1
+        b.setNumber(-1);
+    }
 }
