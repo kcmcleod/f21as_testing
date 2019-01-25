@@ -11,7 +11,7 @@ public class BTest {
 
     // this rule is only used for "new_skool_exceptionTest()" below
     @Rule
-    ExpectedException thrown = ExpectedException.none();
+    public ExpectedException thrown = ExpectedException.none();
 
     private B b;
 
@@ -55,8 +55,7 @@ public class BTest {
             assertEquals("Value of number must be 0 or more", e.getMessage());
         }
     }
-
-
+    
     @Test
     public void new_skool_exceptionTest() {
         // define thrown at top of Tests
