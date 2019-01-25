@@ -11,7 +11,7 @@ public class BTest {
 
     // this rule is only used for "new_skool_exceptionTest()" below
     @Rule
-    ExpectedException thrown = ExpectedException.none();
+    public ExpectedException thrown = ExpectedException.none();
 
     private B b;
 
@@ -56,7 +56,6 @@ public class BTest {
         }
     }
 
-
     @Test
     public void new_skool_exceptionTest() {
         // define thrown at top of Tests
@@ -64,4 +63,50 @@ public class BTest {
         thrown.expectMessage("Value of number must be 0 or more");
         b.setNumber(-1);
     }
+
+    // TDD - Test Driven Development
+    // Write all the tests before you write any code.
+    // Write just enough code to make 1st test pass, then repeat iteratively
+    //
+    // Good at finding flaws in specification
+    // Supposed to be efficient as you have fewer bug in code and problems with spec
+    // BUT you spend a lot of time writing tests
+    //
+    // Works best with complex specs when doing agile
+
+    @Test
+    public void processNumber_smallNumber_boundary() {
+        // SPEC: return "small number" if number < 10
+        // want the boundary, ie the highest number that can be a "small number"
+        b.setNumber(9);
+        assertEquals("small number", b.processNumber());
+    }
+
+    @Test
+    public void processNumber_mediumNumber_lowerBoundary() {
+        // SPEC: return "medium number" if number < 100
+        // want the lower boundary, ie the lowest number that can be a "medium number"
+        b.setNumber(10);
+        assertEquals("medium number", b.processNumber());
+    }
+
+    @Test
+    public void processNumber_mediumNumber_upperBoundary() {
+        // SPEC: return "medium number" if number < 100
+        // want the upper boundary, ie the highest number that can be a "medium number"
+        b.setNumber(99);
+        assertEquals("medium number", b.processNumber());
+    }
+
+    @Test
+    public void processNumber_largeNumber_boundary() {
+        // SPEC: return "large number" if 100 < number
+        // Problem! We don't know what 100 is... medium or large. Must change spec
+        // SPEC 2: return "large number" if 100 <= number
+        b.setNumber(100);
+        assertEquals("large number", b.processNumber());
+    }
+
+    // With all the tests written we can now write the code in B
+
 }
