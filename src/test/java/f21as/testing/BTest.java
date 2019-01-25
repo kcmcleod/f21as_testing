@@ -9,6 +9,8 @@ public class BTest {
 
     private B b;
 
+    // method will be called before EVERY test.
+    // ensures we have a new B for every test
     @Before
     public void setUp() throws Exception {
         b = new B();
